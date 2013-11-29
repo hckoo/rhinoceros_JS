@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="uppercaseAdvice" class="service.UppercaseAdvice" />
+	
+	<!-- <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" /> -->
+	
+	<bean id="uppercasePointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+	  <!-- <property name="mappedClassName" value="*ServiceImpl" /> -->
+		<property name="mappedName" value="sayH*" />
+	</bean> 
+	
+	<bean id="uppercaseAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice" ref="uppercaseAdvice" />
+		<property name="pointcut" ref="uppercasePointcut" />
+	</bean> 
+	
+	<!--  application components -->
+	
+	<!-- <bean id="helloService" class="service.HelloServiceImpl" /> -->
+
+</beans>
