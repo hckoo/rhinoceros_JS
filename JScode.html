@@ -13,7 +13,7 @@ log(o);		//Object {x: 1, y: Object, a: 4}
 log(o.x);	//1
 log(o.a); 	//4
 // log(o."a"); 	// unexpect string
-log(o[x]); 	// undefind.
+// log(o[x]); 	// undefind.
 log(o["x"]); //1
 
 log(a[2]["1"]);  //6
@@ -21,23 +21,31 @@ log(a[2][1]); // same. 6
 
 log(a[0].x); // 1
 log(a[1].x); //undefind.
-log("toString --> "+a[1].toString());
-log("valueOf --> "+a[1].valueOf());
+log("toString --> "+a[1].toString()); // 4.
+log("valueOf --> "+a[1].valueOf());	 // 4.
 
 
 // 프로퍼티에 할당 하기. var 의 개념이 아니다..
 a.smthing = 1;
-log("something -->" + a.smthing);
+log("something -->" + a.smthing); // 1.
 
 // + 연산자의 동작.
 
 log("100"+"100"); //100100
 log("100"+100);	//100100	
 log(100+100); //200
+log(true+true); // 2
+
 
 log(+"30"); //30
 log(+"FF"); //NaN
 
+
+// 동등 연산자
+log("동등연산자...........");
+log("0"==false); //true
+log("0"===false); //false
+log(false===false); //true
 
 // 배열내부 값들 넣기..
 
