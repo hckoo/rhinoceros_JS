@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+
+//4.4 프로퍼티 접근 표현식
+
+var o = { x : 1 , y : { z :3 }, "a" : 4};
+
+var a = [o, 4 , [5, 6]];
+
+log(o);		//Object {x: 1, y: Object, a: 4}
+log(o.x);	//1
+log(o.a); 	//4
+// log(o."a"); 	// unexpect string
+log(o[x]); 	// undefind.
+log(o["x"]); //1
+
+log(a[2]["1"]);  //6
+log(a[2][1]); // same. 6
+
+log(a[0].x); // 1
+log(a[1].x); //undefind.
+log("toString --> "+a[1].toString());
+log("valueOf --> "+a[1].valueOf());
+
+
+// 프로퍼티에 할당 하기. var 의 개념이 아니다..
+a.smthing = 1;
+log("something -->" + a.smthing);
+
+// + 연산자의 동작.
+
+log("100"+"100"); //100100
+log("100"+100);	//100100	
+log(100+100); //200
+
+log(+"30"); //30
+log(+"FF"); //NaN
+
+
+// 배열내부 값들 넣기..
+
+var o = { x : 10, y:20, z:30};
+var a = [] , i = 0 , b = [];
+for(a[i++] in o);
+// for(i in a) console.log(i);
+	var j = 0;
+	for(var p in o){
+		b[j]= o[p];
+		j++;
+		console.log(o[p]);
+	}
+// console.log(a);
+
+// 모든객체는 Boolean 을 가지고 있다.
+console.log(Boolean(null));
+console.log(Boolean(1));
+console.log(Boolean(2));
+console.log(Boolean(0)); //false
+
+
+function log(arg){
+	console.log(arg);
+}
+
+
+
+</script>
+	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+hi
+
+
+</body>
+</html>
