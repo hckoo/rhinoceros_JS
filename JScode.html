@@ -47,6 +47,96 @@ log("0"==false); //true
 log("0"===false); //false
 log(false===false); //true
 
+// 비교연산자.
+log("비교연산자...........");
+log("11"> 3); // true.
+log("11"> "3"); // false.
+log("b>a ===>"+("b">"a")); // true.
+log("a">3); //false. NAN.
+
+
+// in Operator
+log("in Operator...........");
+var point = { x: 1};
+log("x" in  point); //true
+// log(x in  point); // x is not defined
+log("y" in  point); //false
+log("toString" in  point); //true
+
+//instanceof Operator
+log("instanceof Operator...........");
+var d = new Date();
+log(d instanceof Object); //true
+log(d instanceof Number); //false
+
+//variable and Object
+
+log(acc); //undefined (no error)
+// log(bcc); //ReferenceError: b is not defined
+var acc = 24;
+window.bcc = 36;
+log(bcc); //36
+
+// var x = { var x : 2}; //error
+// var y = [ var x ];  //error
+
+//eval
+log("eval ...........");
+ var a = {
+    b: function () {
+      var foo = 'foo';
+      return eval('foo'); // (A)
+    },
+    c: function () {
+      return eval('this'); // (B)
+    }
+  };
+
+  log(a.b()); //--> 'foo'
+  log(a === a.c()); //--> true
+
+    var foo = 'global_foo';
+
+  function directEval() {
+    var foo = 'local_foo';
+    return eval('foo');
+  }
+
+  function indirectEval() {
+    var foo = 'local_foo';
+    var f = eval; // 직접 eval을 호출하지 않고 eval의 참조를 호출한다.
+    return f('foo');
+  }
+
+
+  directEval(); //--> 'local_foo'
+  indirectEval(); //--> 'global_foo'
+
+  // infinite function with eval
+  function infinite() {
+    var f = eval; // 직접 eval을 호출하지 않고 eval의 참조를 호출한다.
+    f(console.log("infinite!!!!!"));
+    f('infinite();');
+  }
+
+  // this.infinite(); // diffiernt a bit.
+
+  // infinite function.
+  function infi2(){
+  	console.log("infi2");
+  	infi2();
+  }
+
+  // infi2();
+
+log("typeof ...........");
+
+log(typeof "3"); //string
+log(typeof("3")); //string.
+log(typeof 3); //number
+log(typeof infi2); //function
+
+
 // 배열내부 값들 넣기..
 
 var o = { x : 10, y:20, z:30};
