@@ -5,13 +5,26 @@
 
 //4.4 프로퍼티 접근 표현식
 
+var s = "te";
+s.len = 4;
+log(s.len);
+var nullvar = null;
+// nullvar.len = 4; TypeError
+
+proper = 2; // 프로퍼티 식으로는 선언 가능함.
+
+var numtoString = 2;
+log(numtoString.toString()); //2 OK.
+// log(2.toString()); //Unexpected token Illegal. Error.
+// log(2.valueOf()); //Unexpected token Illegal. Error.
+
 var o = { x : 1 , y : { z :3 }, "a" : 4};
 
 var a = [o, 4 , [5, 6]];
 
 log(o);		//Object {x: 1, y: Object, a: 4}
 log(o.x);	//1
-log(o.a); 	//4
+log(o.a); //4
 // log(o."a"); 	// unexpect string
 // log(o[x]); 	// undefind.
 log(o["x"]); //1
@@ -32,16 +45,16 @@ log("something -->" + a.smthing); // 1.
 // + 연산자의 동작.
 
 log("100"+"100"); //100100
-log("100"+100);	//100100	
+log("100"+100);	//100100	문자열이 우선한다
 log(100+100); //200
-log(true+true); // 2
+log(true+true); // 2 Boolean 이 숫자로 치환되고 계산된다.
 
 
 log(+"30"); //30
 log(+"FF"); //NaN
 
 
-// 동등 연산자
+// 동등 연산자 , 일치 연산자.
 log("동등연산자...........");
 log("0"==false); //true
 log("0"===false); //false
@@ -76,6 +89,11 @@ log(acc); //undefined (no error)
 var acc = 24;
 window.bcc = 36;
 log(bcc); //36
+
+// var wow;
+// log(wow);
+// window 객체 안에서는 객체가 선언되는것은 무엇인지?
+// var a = { var b;};
 
 // var x = { var x : 2}; //error
 // var y = [ var x ];  //error
