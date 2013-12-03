@@ -21,6 +21,19 @@ log(numtoString.toString()); //2 OK.
 // log(2.toString()); //Unexpected token Illegal. Error.
 // log(2.valueOf()); //Unexpected token Illegal. Error.
 
+var s = "te";
+s.len = 4;
+log(s.len);
+var nullvar = null;
+// nullvar.len = 4; TypeError
+
+proper = 2; // 프로퍼티 식으로는 선언 가능함.
+
+var numtoString = 2;
+log(numtoString.toString()); //2 OK.
+// log(2.toString()); //Unexpected token Illegal. Error.
+// log(2.valueOf()); //Unexpected token Illegal. Error.
+
 var o = { x : 1 , y : { z :3 }, "a" : 4};
 
 var a = [o, 4 , [5, 6]];
@@ -109,6 +122,11 @@ log(window.hi); // hi.
 <<<<<<< HEAD
 // var x = { var x : 2}; //error // 사용자 객체 안에 객체를 선언하는것은 불가능하다..
 =======
+// var wow;
+// log(wow);
+// window 객체 안에서는 객체가 선언되는것은 무엇인지?
+// var a = { var b;};
+
 // var wow;
 // log(wow);
 // window 객체 안에서는 객체가 선언되는것은 무엇인지?
