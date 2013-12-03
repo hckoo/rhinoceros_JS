@@ -4,6 +4,9 @@
 <script type="text/javascript">
 
 //4.4 프로퍼티 접근 표현식
+// 131203
+
+
 
 var o = { x : 1 , y : { z :3 }, "a" : 4};
 
@@ -69,15 +72,28 @@ var d = new Date();
 log(d instanceof Object); //true
 log(d instanceof Number); //false
 
-//variable and Object
+// variable and Properties.
+// 둘의 차이는 무엇인가?
+
+// hiyo; // not defined 가 된다.
+hi = "hi"; // this is OK.
+
+second;
+var second = 2; // 이 두문장은. OK second 가 not defined 라도 scope 내 var 가 존재하는것을 hoisting(?) 으로 찾아낸다.
 
 log(acc); //undefined (no error)
-// log(bcc); //ReferenceError: b is not defined
 var acc = 24;
-window.bcc = 36;
+// log(bcc); //ReferenceError: b is not defined
+window.bcc = 36; // window 객체는 <script></scriipt> 내의 객체가 아님을 유의할것. 
+// • Window 객체는 브라우저 창을 나타낸다.
+// • 모든 자바스크립트 객체, 함수, 변수는 자동적으로 Window 객체의 멤버가 된다.
+// • 전역 변수(global variable)는 Window 객체의 속성(property)이 된다.
+// • 전역 함수(global function)은 Window 객체의 메소드(method)가 된다.
+// • 하물며, HTML DOM의 Document 객체까지도 Window 객체의 속성(property)이 된다.
 log(bcc); //36
+log(window.hi); // hi.
 
-// var x = { var x : 2}; //error
+// var x = { var x : 2}; //error // 사용자 객체 안에 객체를 선언하는것은 불가능하다..
 // var y = [ var x ];  //error
 
 //eval
