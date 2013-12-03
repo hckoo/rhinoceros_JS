@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+
+<script type="text/javascript">
+	
+// console.log($( "#compareInfoByPrice1304396" ).val());
+$(document).ready(function() {
+	$('.iframeTemp').on("load" , function(){
+		console.log($(".iframeTemp").contents().find("html").html());	
+	});
+});
+
+// console.log($('#myframe').contents().find('#compareInfoByPrice1304396').html());
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+hi
+
+<iframe class='iframeTemp' id="myframe" src="http://naver.com/" >
+</iframe>
+
+
+</body>
+</html>
